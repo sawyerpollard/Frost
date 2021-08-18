@@ -1,10 +1,12 @@
-# Frost - A Newspaper Theme for Ghost
+# ❄️ Frost - A Newspaper Theme for Ghost
 
-Based on the default theme for [Ghost](http://github.com/tryghost/ghost/).
+Based on the default theme for [Ghost](https://github.com/tryghost/ghost/).
+
+See it in action at [The Amherst Student](https://amherststudent.com) newspaper!
 
 # First time using a Ghost theme?
 
-Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
+Ghost uses a simple templating language called [Handlebars](https://handlebarsjs.com/) for its themes.
 
 This theme has lots of code comments to help explain what's going on just by reading the code. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://ghost.org/docs/themes/) which explains every possible Handlebars helper and template.
 
