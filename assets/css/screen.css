@@ -36,11 +36,13 @@ production stylesheet in assets/built/screen.css
     --color-green: #a4d037;
     --color-yellow: #fecd35;
     --color-red: #f05230;
-    --color-darkgrey: #15171A;
-    --color-midgrey: #738a94;
-    --color-lightgrey: #c5d2d9;
+    --color-offblack: #121212;
+    --color-darkgrey: #333;
+    --color-midgrey: #888888;
+    --color-lightgrey: #e2e2e2;
     --color-wash: #e5eff5;
     --color-darkmode: #151719;
+    --color-purple: #7801A0;
 
     /*
     An accent color is also set by Ghost itself in
@@ -53,7 +55,7 @@ production stylesheet in assets/built/screen.css
 
     /* Fonts */
     --font-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    --font-serif: Georgia, Times, serif;
+    --font-serif: 'EB Garamond', Times, serif;
     --font-mono: Menlo, Courier, monospace;
 
 }
@@ -113,9 +115,6 @@ production stylesheet in assets/built/screen.css
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6vw 3vw;
-    min-height: 200px;
-    max-height: 340px;
     text-align: center;
 }
 
@@ -123,6 +122,7 @@ production stylesheet in assets/built/screen.css
     z-index: 10;
     margin: 0 0 0.15em;
     padding: 0;
+    font-family: var(--font-serif);
 }
 
 .site-logo {
@@ -154,11 +154,8 @@ production stylesheet in assets/built/screen.css
 }
 
 .site-header-content {
-    padding: 18vmin 4vmin;
     font-size: 2.5rem;
     font-weight: 400;
-    color: #fff;
-    background: var(--ghost-accent-color);
 }
 
 
@@ -167,11 +164,9 @@ production stylesheet in assets/built/screen.css
 /* ---------------------------------------------------------- */
 
 .gh-head {
-    padding: 1vmin 4vmin;
+    padding: 1vmin 1vmin 4vmin 1vmin;
     font-size: 1.6rem;
     line-height: 1.3em;
-    color: #fff;
-    background: var(--ghost-accent-color);
 }
 
 .gh-head a {
@@ -193,23 +188,44 @@ production stylesheet in assets/built/screen.css
 .gh-head-brand {
     display: flex;
     align-items: center;
-    height: 40px;
-    max-width: 200px;
+    justify-content: center;
     text-align: center;
     word-break: break-all;
 }
 
 .gh-head-logo {
-    display: block;
-    padding: 10px 0;
+    padding: 20px 0;
     font-weight: 700;
     font-size: 2rem;
     line-height: 1.2em;
+    width: 650px;
     letter-spacing: -0.02em;
 }
 
 .gh-head-logo img {
     max-height: 26px;
+}
+
+
+/* Info
+/* ---------------------------------------------------------- */
+
+.gh-head-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-darkgrey);
+}
+
+.gh-head-info .bull {
+    display: inline-block;
+    margin: 0 2px;
+    color: purple;
+}
+
+#date {
+    text-align: center;
 }
 
 
@@ -219,27 +235,33 @@ production stylesheet in assets/built/screen.css
 .gh-head-menu {
     display: flex;
     align-items: center;
-    font-weight: 500;
+    justify-content: center;
+    font-weight: 400;
+    border-top: 1px solid var(--color-lightgrey);
+    border-bottom: 4px double black;
+    color: var(--color-offblack);
 }
 
 .gh-head-menu .nav {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    width: 650px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .gh-head-menu .nav li {
-    margin: 0 2.5vmin 0 0;
+    margin: 0;
     padding: 0;
 }
 
 .gh-head-menu .nav a {
     display: inline-block;
     padding: 5px 0;
-    opacity: 0.8
+    opacity: 0.9;
 }
 
 .gh-head-menu .nav a:hover {
@@ -318,6 +340,7 @@ a.gh-head-button {
     position: relative;
     display: none;
     cursor: pointer;
+    padding: 0 20px;
 }
 
 .gh-burger-box {
@@ -347,7 +370,7 @@ a.gh-head-button {
     background: currentcolor;
     transition: transform 300ms cubic-bezier(.2,.6,.3,1), width 300ms cubic-bezier(.2,.6,.3,1);
     will-change: transform, width;
-}
+}   
 
 .gh-burger-inner::before,
 .gh-burger-inner::after {
@@ -422,9 +445,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
         justify-content: space-between;
         user-select: none;
     }
-    .home-template #gh-head .gh-head-brand {
-        justify-content: flex-end;
-    }
+
     #gh-head .gh-head-menu {
         align-self: center;
         display: flex;
@@ -473,6 +494,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
         left: 0;
         z-index: 3999999;
         overflow-y: scroll;
+        background: white;
     }
     .gh-head-open #gh-head .gh-head-inner {
         grid-template-rows: auto 1fr auto;
@@ -489,30 +511,6 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     }
 }
 
-.home-template .gh-head {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 2000;
-}
-
-.home-template .gh-head.has-cover {
-    background: transparent;
-}
-
-.home-template.gh-head-open .gh-head {
-    background: var(--ghost-accent-color);
-}
-
-.home-template .gh-head-logo {
-    display: none;
-}
-.home-template .gh-head-menu {
-    margin-left: -2.5vmin;
-}
-
-
 /* 6. Post Feed
 /* ---------------------------------------------------------- */
 
@@ -521,7 +519,6 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     display: grid;
     grid-gap: 4vmin;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 4vmin 0;
 }
 
 @media (max-width: 1000px) {
@@ -533,6 +530,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     .post-feed {
         grid-template-columns: 1fr;
         grid-gap: 40px;
+        padding: 0;
     }
 }
 
@@ -564,7 +562,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 .post-card-content-link {
     position: relative;
     display: block;
-    color: var(--color-darkgrey);
+    color: var(--color-offblack);
 }
 
 .post-card-content-link:hover {
@@ -585,7 +583,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 
 .post-card-primary-tag {
     margin: 0 0 0.2em;
-    color: var(--ghost-accent-color);
+    color: var(--color-purple);
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.2px;
@@ -596,6 +594,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     margin: 0 0 0.4em;
     font-size: 2.4rem;
     transition: color 0.2s ease-in-out;
+    font-family: var(--font-serif);
 }
 
 .no-image .post-card-title {
@@ -610,7 +609,9 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 
 .post-card-excerpt {
     max-width: 56em;
-    color: color-mod(var(--color-midgrey) l(-8%));
+    color: var(--color-darkgrey);
+    font-family: var(--font-serif);
+
 }
 
 .post-card-excerpt p {
@@ -791,12 +792,11 @@ make sure this only happens on large viewports / desktop-ish devices.
 /* ---------------------------------------------------------- */
 
 .article {
-    padding: 8vmin 0;
     word-break: break-word;
 }
 
 .article-header {
-    padding: 0 0 6vmin 0;
+    padding: 0;
 }
 
 .article-tag {
@@ -813,15 +813,18 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .article-tag a {
-    color: var(--ghost-accent-color);
+    color: var(--color-purple);
 }
 
 .article-title {
     color: color-mod(var(--color-darkgrey) l(-5%));
+    font-family: var(--font-serif);
+    font-weight: 400;
+    margin-bottom: 0;
 }
 
 .article-excerpt {
-    margin: 0 0 1rem;
+    margin-top: 30px;
     font-size: 2rem;
     line-height: 1.4em;
     opacity: 0.6;
@@ -1329,14 +1332,15 @@ Ghost editor. */
 
 .article-byline {
     display: flex;
-    justify-content: space-between;
-    margin: 20px 0 0;
+    justify-content: center;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px 0;
+    margin: 30px 0;
 }
 
 .article-byline-content {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
+    text-align: center;
 }
 
 .article-byline-content .author-list {
@@ -1345,12 +1349,13 @@ Ghost editor. */
 }
 
 .article-byline-meta {
-    color: color-mod(var(--color-midgrey));
+    color: var(--color-darkgrey);
     font-size: 1.4rem;
     line-height: 1.2em;
 }
 
 .article-byline-meta h4 {
+    color: black;
     margin: 0 0 3px;
     font-size: 1.6rem;
 }
@@ -1445,10 +1450,9 @@ Ghost editor. */
 
 .read-more-wrap {
     width: 100%;
-    padding: 4vmin;
+    padding: 8vmin;
     margin: 0 auto -40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: color-mod(var(--color-darkgrey) l(-5%));
 }
 
 .read-more {
@@ -1457,19 +1461,14 @@ Ghost editor. */
     grid-gap: 4vmin;
 }
 
-.read-more .post-card-title {
-    color: #fff;
-    opacity: 0.8;
+.read-more-title {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 600;
+    padding: 4vmin 0;
+    line-height: 1;
+    border-top: 1px solid black;
 }
-
-.read-more .post-card-excerpt {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.read-more .post-card-byline-content a {
-    color: #fff;
-}
-
 
 @media (max-width: 1000px) {
     .read-more {
@@ -1670,31 +1669,26 @@ Ghost editor. */
 .site-footer {
     position: relative;
     margin: 40px 0 0 0;
-    padding: 40px 4vmin 140px;
-    color: #fff;
-    background: color-mod(var(--color-darkgrey) l(-5%));
+    padding: 40px 4vmin;
+    border-top: 1px solid black;
 }
 
 .site-footer .inner {
     display: grid;
     grid-gap: 40px;
     grid-template-columns: auto 1fr auto;
-    color: rgba(255,255,255,0.7);
     font-size: 1.3rem;
 }
 
 .site-footer .copyright a {
-    color: #fff;
     letter-spacing: -0.015em;
     font-weight: 500;
 }
 
 .site-footer a {
-    color: rgba(255,255,255,0.7);
 }
 
 .site-footer a:hover {
-    color: rgba(255,255,255,1);
     text-decoration: none;
 }
 
@@ -1728,7 +1722,6 @@ Ghost editor. */
     width: 2px;
     height: 2px;
     margin: 0 10px 0 0;
-    background: #fff;
     border-radius: 100%;
 }
 
@@ -1741,7 +1734,6 @@ Ghost editor. */
     }
     .site-footer .copyright,
     .site-footer .copyright a {
-        color: #fff;
         font-size: 1.5rem;
     }
 }
