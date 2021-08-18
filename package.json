@@ -18,7 +18,8 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Sawyer Pollard"
+        "name": "Sawyer Pollard",
+        "email": "dev@sawyerpollard.com"
     },
     "gpm": {
         "type": "theme",
