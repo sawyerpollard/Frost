@@ -817,7 +817,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .article-title {
-    color: color-mod(var(--color-darkgrey) l(-5%));
+    color: #121212;
     font-family: var(--font-serif);
     font-weight: 400;
     margin-bottom: 0;
@@ -935,7 +935,7 @@ is the very first element in the post content */
 
 /* Now the content typography styles */
 .gh-content a {
-    color: var(--ghost-accent-color);
+    color: var(--color-purple);
     text-decoration: underline;
     word-break: break-word;
 }
@@ -945,6 +945,7 @@ is the very first element in the post content */
 .gh-content > ul,
 .gh-content > dl,
 .gh-content > p {
+    color: #333333;
     font-family: var(--font-serif);
     font-weight: 400;
     font-size: 2.1rem;
@@ -1048,7 +1049,7 @@ except for when immediately preceeded by a heading */
 figcaption {
     padding: 1.5rem 1.5rem 0;
     text-align: center;
-    color: rgba(0,0,0,0.5);
+    color: #666666;
     font-weight: 600;
     font-size: 1.3rem;
     line-height: 1.4em;
