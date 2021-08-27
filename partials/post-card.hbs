@@ -37,20 +37,20 @@ which templates loop over to generate a list of posts. --}}
         </a>
 
         <footer class="post-card-meta">
-            <ul class="author-list">
+            {{!--<ul class="author-list">
                 {{#foreach authors}}
                 <li class="author-list-item">
-                    {{!--{{#if profile_image}}
+                    {{#if profile_image}}
                     <a href="{{url}}" class="static-avatar">
                         <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
                     </a>
                     {{else}}
                     <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                    {{/if}}--}}
+                    {{/if}}
                     <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
                 </li>
                 {{/foreach}}
-            </ul>
+            </ul>--}}
             <div class="post-card-byline-content">
                 <span>{{#has author="count:>2"}}Multiple authors{{else}}{{authors}}{{/has}}</span>
                 <span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
