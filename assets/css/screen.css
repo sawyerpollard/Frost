@@ -1588,13 +1588,12 @@ Ghost editor. */
 /* 8. Tag Template
 /* ---------------------------------------------------------- */
 
-.tag-template .post-card-large .post-card-image-link {
-    grid-column: 2 / span 2;
-    order: 2;
-}
-
-.tag-template .post-card-large .post-card-content {
-    order: 1;
+.tag-template .tag-title {
+    display: block;
+    margin: 2rem 0;
+    font-size: 6rem;
+    font-family: var(--font-serif);
+    text-align: center;
 }
 
 
